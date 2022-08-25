@@ -29,7 +29,7 @@ set(PROJECT_SOURCES
     main.c)
 
 stm32_add_linker_script(CMSIS::STM32::H7::M7 INTERFACE
-    "${CMAKE_CURRENT_SOURCE_DIR}/STM32F767xx_FLASH.ld")
+    "${CMAKE_CURRENT_SOURCE_DIR}/STM32F767ZITX_FLASH.ld")
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC
     .
