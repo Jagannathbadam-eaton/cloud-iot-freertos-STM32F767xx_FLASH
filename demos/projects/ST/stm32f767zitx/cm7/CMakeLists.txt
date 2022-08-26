@@ -1,12 +1,12 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # SPDX-License-Identifier: MIT
 
-stm32_fetch_cube(H7)
+stm32_fetch_cube(F7)
 lwip_fetch()
 
-find_package(CMSIS COMPONENTS STM32H7 STM32H7_M7 REQUIRED)
-find_package(HAL COMPONENTS STM32H7_M7 REQUIRED)
-find_package(BSP COMPONENTS STM32H745XI_M7 REQUIRED)
+find_package(CMSIS COMPONENTS STM32F7 STM32F7_M7 REQUIRED)
+find_package(HAL COMPONENTS STM32F7_M7 REQUIRED)
+find_package(BSP COMPONENTS STM32F767ZITX_M7 REQUIRED)
 find_package(LWIP)
 
 # set parent scope path
@@ -28,7 +28,7 @@ set(PROJECT_SOURCES
     ${STCODE_SOURCES}
     main.c)
 
-stm32_add_linker_script(CMSIS::STM32::H7::M7 INTERFACE
+stm32_add_linker_script(CMSIS::STM32::F7::M7 INTERFACE
     "${CMAKE_CURRENT_SOURCE_DIR}/STM32F767ZITX_FLASH.ld")
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC
