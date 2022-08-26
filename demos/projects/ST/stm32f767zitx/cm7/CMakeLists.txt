@@ -4,9 +4,9 @@
 stm32_fetch_cube(F7)
 lwip_fetch()
 
-find_package(CMSIS COMPONENTS STM32F7 STM32F7_M7 REQUIRED)
-find_package(HAL COMPONENTS STM32F7_M7 REQUIRED)
-find_package(BSP COMPONENTS STM32F767ZITX_M7 REQUIRED)
+find_package(CMSIS COMPONENTS STM32F7 REQUIRED)
+find_package(HAL COMPONENTS STM32F7 REQUIRED)
+find_package(BSP COMPONENTS STM32F767ZITX REQUIRED)
 find_package(LWIP)
 
 # set parent scope path
@@ -28,7 +28,7 @@ set(PROJECT_SOURCES
     ${STCODE_SOURCES}
     main.c)
 
-stm32_add_linker_script(CMSIS::STM32::F7::M7 INTERFACE
+stm32_add_linker_script(CMSIS::STM32::F7 INTERFACE
     "${CMAKE_CURRENT_SOURCE_DIR}/STM32F767ZITX_FLASH.ld")
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -45,25 +45,25 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     FreeRTOSPlus::Utilities::logging
     FreeRTOSPlus::ThirdParty::mbedtls
     LWIP
-    HAL::STM32::F7::M7::RCC
-    HAL::STM32::F7::M7::RCCEx
-    HAL::STM32::F7::M7::SPI
-    HAL::STM32::F7::M7::RTC
-    HAL::STM32::F7::M7::UART
-    HAL::STM32::F7::M7::DMA
-    HAL::STM32::F7::M7::PWR
-    HAL::STM32::F7::M7::PWREx
-    HAL::STM32::F7::M7::GPIO
-    HAL::STM32::F7::M7::CORTEX
-    HAL::STM32::F7::M7::RNG
-    HAL::STM32::F7::M7::TIM
-    HAL::STM32::F7::M7::TIMEx
-    HAL::STM32::F7::M7::UARTEx
-    CMSIS::STM32::F7767ZI::M7
+    HAL::STM32::F7::RCC
+    HAL::STM32::F7::RCCEx
+    HAL::STM32::F7::SPI
+    HAL::STM32::F7::RTC
+    HAL::STM32::F7::UART
+    HAL::STM32::F7::DMA
+    HAL::STM32::F7::PWR
+    HAL::STM32::F7::PWREx
+    HAL::STM32::F7::GPIO
+    HAL::STM32::F7::CORTEX
+    HAL::STM32::F7::RNG
+    HAL::STM32::F7::TIM
+    HAL::STM32::F7::TIMEx
+    HAL::STM32::F7::UARTEx
+    CMSIS::STM32::F7767ZI
     STM32::NoSys
     az::iot_middleware::freertos
-    HAL::STM32::F7::M7::ETH
-    BSP::STM32::F7::M7::LAN8742
+    HAL::STM32::F7
+    BSP::STM32::F7
     SAMPLE::AZUREIOT
     SAMPLE::TRANSPORT::MBEDTLS
     SAMPLE::SOCKET::LWIP)
@@ -93,27 +93,27 @@ target_link_libraries(${PROJECT_NAME}-pnp PRIVATE
     FreeRTOSPlus::Utilities::logging
     FreeRTOSPlus::ThirdParty::mbedtls
     LWIP
-    HAL::STM32::F7::M7::RCC
-    HAL::STM32::F7::M7::RCCEx
-    HAL::STM32::F7::M7::SPI
-    HAL::STM32::F7::M7::RTC
-    HAL::STM32::F7::M7::UART
-    HAL::STM32::F7::M7::DMA
-    HAL::STM32::F7::M7::PWR
-    HAL::STM32::F7::M7::PWREx
-    HAL::STM32::F7::M7::GPIO
-    HAL::STM32::F7::M7::CORTEX
-    HAL::STM32::F7::M7::RNG
-    HAL::STM32::F7::M7::TIM
-    HAL::STM32::F7::M7::TIMEx
-    HAL::STM32::F7::M7::UARTEx
-    CMSIS::STM32::F767ZI::M7
+    HAL::STM32::F7::RCC
+    HAL::STM32::F7::RCCEx
+    HAL::STM32::F7::SPI
+    HAL::STM32::F7::RTC
+    HAL::STM32::F7::UART
+    HAL::STM32::F7::DMA
+    HAL::STM32::F7::PWR
+    HAL::STM32::F7::PWREx
+    HAL::STM32::F7::GPIO
+    HAL::STM32::F7::CORTEX
+    HAL::STM32::F7::RNG
+    HAL::STM32::F7::TIM
+    HAL::STM32::F7::TIMEx
+    HAL::STM32::F7::UARTEx
+    CMSIS::STM32::F767ZI
     STM32::Nano
     STM32::Nano::FloatScan
     STM32::Nano::FloatPrint
     az::iot_middleware::freertos
-    HAL::STM32::F7::M7::ETH
-    BSP::STM32::F7::M7::LAN8742
+    HAL::STM32::F7
+    BSP::STM32::F7
     SAMPLE::AZUREIOTPNP
     SAMPLE::TRANSPORT::MBEDTLS
     SAMPLE::SOCKET::LWIP)
