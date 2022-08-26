@@ -62,8 +62,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     CMSIS::STM32::H745XI::M7
     STM32::NoSys
     az::iot_middleware::freertos
-    HAL::STM32::H7::M7::ETH
-    BSP::STM32::H7::M7::LAN8742
+    HAL::STM32::F7::M7::ETH
+    BSP::STM32::F7::M7::LAN8742
     SAMPLE::AZUREIOT
     SAMPLE::TRANSPORT::MBEDTLS
     SAMPLE::SOCKET::LWIP)
